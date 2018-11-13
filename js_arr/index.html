@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SeriesSum</title>
+</head>
+<body>
+  <script type="text/javascript">
+  var arr=[];
+   
+    const Series = [{
+      name: 'Web',
+      courses: [{
+        name: 'HTML',
+        lessons: [{
+          name: 'HTML Lesson 1'
+        },{
+          name: 'HTML Lesson 2'
+        },{
+          name: 'HTML Lesson 3'
+        }]
+      },{
+        name: 'CSS',
+        lessons: [{
+          name: 'CSS Lesson 1'
+        },{
+          name: 'CSS Lesson 2'
+        },{
+          name: 'CSS Lesson 3'
+        },{
+          name: 'CSS Lesson 4'
+        }]
+      },{
+        name: 'JavaScript',
+        lessons: [{
+          name: 'JavaScript Lesson 1'
+        },{
+          name: 'JavaScript Lesson 2'
+        }]
+      }]
+    },{
+      name: 'PHP',
+      courses: [{
+        name: 'Linux',
+        lessons: [{
+          name: 'Linux Lesson 1'
+        },{
+          name: 'Linux Lesson 2'
+        }]
+      },{
+        name: 'MySQL',
+        lessons: [{
+          name: 'MySQL Lesson 1'
+        },{
+          name: 'MySQL Lesson 2'
+        },{
+          name: 'MySQL Lesson 3'
+        },{
+          name: 'MySQL Lesson 4'
+        }]
+      },{
+        name: 'Nginx',
+        lessons: [{
+          name: 'Nginx Lesson 1'
+        },{
+          name: 'Nginx Lesson 2'
+        },{
+          name: 'Nginx Lesson 3'
+        },{
+          name: 'Nginx Lesson 4'
+        }]
+      }]
+    }]
+
+    function seriesSum(Series){
+      // 返回每个系列名称，及每个系列一共有多少个课（lesson 的总数）;
+      // ...
+	  for(var i=0;i<Series.length;i++)
+	  {
+		  
+      for(var j=0;j<Series[i]['courses'].length;j++)
+      {     
+         arr.push({name:Series[i]['courses'][j]['name'],count:Series[i]['courses'][j]['lessons'].length});
+      
+      }
+	  }
+       
+
+	    return arr;
+	   
+    }
+
+    let result = seriesSum(Series);
+    
+    console.log(result);
+    
+    // 结果
+    // [{
+    //  name: 'Web',
+    //  count: 9
+    // },{
+    //  name: 'PHP',
+    //  count: 10
+    // }]
+  </script>
+
+</body>
+</html>
