@@ -6,8 +6,8 @@
 </head>
 <body>
   <script type="text/javascript">
-  var arr=[];
-   
+    var arr=[];
+    var d_arr=[];
     const Series = [{
       name: 'Web',
       courses: [{
@@ -71,25 +71,51 @@
         }]
       }]
     }]
-
     function seriesSum(Series){
       // 返回每个系列名称，及每个系列一共有多少个课（lesson 的总数）;
       // ...
-	  for(var i=0;i<Series.length;i++)
-	  {
-		  
-      for(var j=0;j<Series[i]['courses'].length;j++)
-      {     
-         arr.push({name:Series[i]['courses'][j]['name'],count:Series[i]['courses'][j]['lessons'].length});
-      
-      }
-	  }
+    for(var i=0;i<Series.length;i++)
+    {
        
-
-	    return arr;
-	   
+      for(var j=0;j<Series[i]['courses'].length;j++)
+      {
+       
+          arr.push({name:Series[i]['name'],count:Series[i]['courses'][j]['lessons'].length}); 
+          /*输出
+            {name: "Web", count: 3}
+            {name: "Web", count: 4}
+            {name: "Web", count: 2}
+            {name: "PHP", count: 2}
+            {name: "PHP", count: 4}
+            {name: "PHP", count: 4}*/
+          d_arr.push({name:Series[i]['courses'][j]['name'],count:Series[i]['courses'][j]['lessons'].length});
+          /*
+          输出
+          {name: "HTML", count: 3}
+          {name: "CSS", count: 4}
+          {name: "JavaScript", count: 2}
+          {name: "Linux", count: 2}
+          {name: "MySQL", count: 4}
+          {name: "Nginx", count: 4}
+           */
+        
+      }
+      
+     
     }
-
+      var array= arr.reduce((res, obj)=> {
+        var originObj = res.find(item => item.name === obj.name);
+        if (originObj) {
+            originObj.count+= obj.count;
+        } else {
+            res.push(obj)
+        }
+        return res;
+    }, []);
+      
+      return array.concat(d_arr);
+      
+    }
     let result = seriesSum(Series);
     
     console.log(result);
