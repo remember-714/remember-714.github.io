@@ -1,0 +1,21 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
+html,body{
+  height: 100%;
+}
+
+.page-mainer{
+	margin-top: 20px;
+	text-align: center;
+}
+.logo{
+	margin-bottom: 20px;
+}
+
+.logo img{
+	margin: 0 auto;
+}
